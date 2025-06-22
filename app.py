@@ -115,7 +115,7 @@ if st.button(L["button"]):
         try:
             with st.spinner("Fetching data..."):
                 backend_res = requests.post(
-                    "https://crypto-tracker-6bwkytxprldahmxbf9atnw.streamlit.app/",
+                    "https://crypto-tracker-6bwkytxprldahmxbf9atnw.streamlit.app/get-price/",
                     json={"crypto_name": crypto_name},
                 )
 
