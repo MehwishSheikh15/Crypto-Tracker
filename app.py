@@ -1,80 +1,3 @@
-# import streamlit as st
-# import requests
-# import datetime
-# import random
-
-# # -------------- Setup --------------
-# st.set_page_config(page_title="💰 Crypto Live Price", page_icon="🪙", layout="centered")
-# st.title("💸 Real-Time Cryptocurrency Price Tracker")
-# st.markdown("Get live prices for your favorite coins. Type or click to explore!")
-
-# # -------------- Coin Emojis (Basic map) --------------
-# coin_icons = {
-#     "bitcoin": "🟠",
-#     "ethereum": "🟣",
-#     "solana": "🟩",
-#     "dogecoin": "🐶",
-#     "shiba inu": "🦊",
-#     "cardano": "🔵",
-#     "ripple": "💧",
-# }
-
-# # -------------- Fun Facts --------------
-# fun_facts = {
-#     "bitcoin": "Bitcoin was created by the mysterious Satoshi Nakamoto in 2009.",
-#     "ethereum": "Ethereum introduced smart contracts to blockchain.",
-#     "dogecoin": "Dogecoin started as a joke but now sponsors NASCAR!",
-#     "shiba inu": "Shiba Inu is known as the 'Dogecoin Killer'.",
-#     "solana": "Solana boasts lightning-fast transaction speeds.",
-# }
-
-# # -------------- Input & Suggestions --------------
-# crypto_name = st.text_input("🔍 Enter Cryptocurrency", "Bitcoin", placeholder="Try 'eth', 'doge', etc.")
-
-# st.markdown("💡 **Quick Picks:**")
-# quick_picks = ["Bitcoin", "Ethereum", "Solana", "Dogecoin", "Shiba Inu", "Cardano", "Ripple"]
-# cols = st.columns(len(quick_picks))
-# for i, coin in enumerate(quick_picks):
-#     if cols[i].button(coin):
-#         crypto_name = coin
-
-# # -------------- Get Price Button --------------
-# if st.button("🚀 Get Price"):
-#     if crypto_name.strip() == "":
-#         st.warning("⚠️ Please enter a cryptocurrency name.")
-#     else:
-#         try:
-#             with st.spinner("Fetching data..."):
-#                 response = requests.post("http://localhost:8000/get-price/", json={"crypto_name": crypto_name})
-#                 now = datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S UTC")
-
-#                 if response.status_code == 200:
-#                     result = response.json().get("result")
-#                     coin_key = crypto_name.strip().lower()
-
-#                     # Coin icon
-#                     icon = coin_icons.get(coin_key, "🪙")
-#                     st.markdown(f"## {icon} Result for `{crypto_name.title()}`")
-#                     st.code(result, language="markdown")
-
-#                     # Fun fact
-#                     if coin_key in fun_facts:
-#                         st.info(f"📘 Did you know? {fun_facts[coin_key]}")
-
-#                     # Random sentiment
-#                     sentiment = random.choice(["🐂 Bullish", "🐻 Bearish", "😐 Neutral"])
-#                     st.markdown(f"**📈 Market Mood:** `{sentiment}`")
-
-#                     # Time fetched
-#                     st.caption(f"📅 Last Updated: {now}")
-#                 else:
-#                     st.error("❌ Could not get data.")
-#         except Exception as e:
-#             st.error(f"⚠️ Error: {str(e)}")
-
-# # -------------- Footer --------------
-# st.markdown("---")
-# st.markdown("Built with ❤️ using FastAPI + Streamlit + Coinlore API")
 import streamlit as st
 import requests
 import datetime
@@ -192,7 +115,7 @@ if st.button(L["button"]):
         try:
             with st.spinner("Fetching data..."):
                 backend_res = requests.post(
-                    "http://localhost:8000/get-price/",
+                    "https://crypto-tracker-6bwkytxprldahmxbf9atnw.streamlit.app/",
                     json={"crypto_name": crypto_name},
                 )
 
